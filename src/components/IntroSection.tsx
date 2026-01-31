@@ -13,7 +13,7 @@ const IntroSection = () => {
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
 
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center max-w-3xl">
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-start text-left max-w-3xl">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const IntroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-12 animate-float"
+          className="mt-12 w-full flex justify-center animate-float"
         >
           <a
             href="#journey"
