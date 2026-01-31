@@ -1,73 +1,46 @@
-# Welcome to your Lovable project
+# OverGuild Landing Page
 
-## Project info
+Landing page for **OverGuild** — The Ultimate Quest Board for Web3 Builders. Meet-to-Earn ecosystem where builders level up by contributing to the world's leading blockchain foundations.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Connect. Contribute. Conquer.**
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+- **Vite** + **React 18** + **TypeScript**
+- **Tailwind CSS** + **shadcn/ui** (Radix)
+- **Framer Motion** (animations)
+- **React Router**
 
-**Use Lovable**
+## Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Intro** — Hero with tagline, about text, email waitlist form, scroll indicator
+- **Journey** — Video demo + CTA to [The Valley](https://www.the-valley.xyz/)
+- **Join** — Twitter & Telegram links
+- **Footer** — Brand, Docs/Blog links, © 2026 OVERGUILD
 
-Changes made via Lovable will be committed automatically to this repo.
+## Scripts
 
-**Use your preferred IDE**
+```bash
+# Install
+pnpm install   # or npm i
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Dev
+pnpm dev       # or npm run dev
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Build
+pnpm build     # or npm run build
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Preview build
+pnpm preview   # or npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## Links (config)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Twitter:** [x.com/overguildOG](https://x.com/overguildOG)
+- **Telegram:** [t.me/OverGuildVN](https://t.me/OverGuildVN)
+- **The Valley:** [the-valley.xyz](https://www.the-valley.xyz/)
+- **Docs / Blog:** See `FooterSection.tsx` and `index.html` meta
 
-**Use GitHub Codespaces**
+## Repo
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Remote:** [FundX-OGX/Landing_Page_Farm](https://github.com/FundX-OGX/Landing_Page_Farm)
