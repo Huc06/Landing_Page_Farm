@@ -74,7 +74,7 @@ const WaitlistForm = () => {
               Loading...
             </span>
           ) : (
-            "Start the Quest →"
+            "Subscribe"
           )}
         </button>
       </div>

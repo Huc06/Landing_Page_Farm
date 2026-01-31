@@ -39,6 +39,7 @@
     --radius: 0.25rem;
 
     /* Custom tokens */
+    --brand-text: 180 85% 42%;
     --glow-cyan: 180 100% 50%;
     --glow-gold: 45 100% 55%;
     --glow-magenta: 300 80% 60%;
@@ -221,6 +222,29 @@
       hsl(0 0% 0% / 0.1) 2px,
       hsl(0 0% 0% / 0.1) 4px
     );
+  }
+
+  /* Brand text: xanh leon, viền đen, đổ bóng */
+  .text-brand-outline {
+    color: hsl(var(--primary));
+    text-shadow:
+      /* Viền đen */
+      -1px -1px 0 #000,
+      -1px 0 0 #000,
+      -1px 1px 0 #000,
+      0 -1px 0 #000,
+      0 1px 0 #000,
+      1px -1px 0 #000,
+      1px 0 0 #000,
+      1px 1px 0 #000,
+      -2px 0 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      0 2px 0 #000,
+      /* Đổ bóng */
+      0 2px 8px rgba(0, 0, 0, 0.8),
+      /* Glow xanh leon */
+      0 0 20px hsl(var(--primary) / 0.6);
   }
 }
 
