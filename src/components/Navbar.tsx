@@ -46,11 +46,6 @@ const Navbar = () => {
               BETA ENROLLMENT OPEN
             </span>
           </div>
-
-          {/* CTA */}
-          <button className="btn-pixel px-4 py-2 text-xs">
-            Join Waitlist
-          </button>
         </div>
       </div>
     </motion.nav>

@@ -1,20 +1,55 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+const WAITLIST_API =
+  import.meta.env.VITE_WAITLIST_API ||
+  (import.meta.env.DEV ? "/api/waitlist" : "https://dev.overguild.com/waitlist");
+const SOURCE = "landing-overguild";
+
 const WaitlistForm = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [responseResult, setResponseResult] = useState<{ status: number; data: unknown } | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    try {
+      const res = await fetch(WAITLIST_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          source: SOURCE,
+        }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        if (res.status === 405) {
+          throw new Error(
+            "405 Not Allowed — Server (nginx) chưa cho phép POST /waitlist. Cần cấu hình nginx hoặc backend cho phép method POST."
+          );
+        }
+        throw new Error(text || `HTTP ${res.status}`);
+      }
+      const text = await res.text();
+      const result = res.headers.get("content-type")?.includes("application/json")
+        ? (() => { try { return JSON.parse(text); } catch { return { raw: text }; } })()
+        : { raw: text };
+      setResponseResult({ status: res.status, data: result });
+      console.log("[OverGuild Waitlist] 200 OK", result);
+      setIsSubmitted(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong. Try again.";
+      setError(msg.length > 120 ? `${msg.slice(0, 120)}…` : msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -33,28 +68,39 @@ const WaitlistForm = () => {
         <p className="text-muted-foreground text-sm mt-2">
           Check your inbox for the confirmation scroll.
         </p>
+        {responseResult && (
+          <div className="mt-4 text-left rounded border border-border bg-muted/30 p-3 text-xs font-mono text-muted-foreground">
+            <div className="font-semibold text-foreground mb-1">Response {responseResult.status} OK</div>
+            <pre className="whitespace-pre-wrap break-all">
+              {JSON.stringify(responseResult.data, null, 2)}
+            </pre>
+          </div>
+        )}
       </motion.div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-3">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email address"
           required
-          className="input-pixel flex-1"
+          className="input-pixel w-full"
         />
+        {error && (
+          <p className="text-sm text-destructive">{error}</p>
+        )}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-pixel px-6 py-3 text-sm sm:text-base whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-pixel w-full px-6 py-3 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
                 <circle
                   className="opacity-25"
