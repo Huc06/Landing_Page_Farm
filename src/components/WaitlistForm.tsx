@@ -67,16 +67,6 @@ const WaitlistForm = () => {
         <p className="text-muted-foreground text-sm mt-2">
           Check your inbox for the confirmation scroll.
         </p>
-        {responseResult && (
-          <div className="mt-4 text-left rounded border border-border bg-muted/30 p-3 text-xs font-mono text-muted-foreground">
-            <div className="font-semibold text-foreground mb-1">
-              Response {responseResult.status} OK
-            </div>
-            <pre className="whitespace-pre-wrap break-all">
-              {JSON.stringify(responseResult.data, null, 2)}
-            </pre>
-          </div>
-        )}
       </motion.div>
     );
   }
