@@ -10,9 +10,8 @@ export default defineConfig(({ mode }) => ({
     hmr: { overlay: false },
     proxy: {
       "/api/waitlist": {
-        target: "https://dev.overguild.com",
+        target: "http://dev.overguild.com",
         changeOrigin: true,
-        secure: false,
         rewrite: (path) => path.replace(/^\/api\/waitlist/, "/waitlist"),
       },
     },
