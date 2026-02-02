@@ -1,0 +1,18 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Triangle -->
+  <path d="M100 20 L180 180 L20 180 Z" stroke="#ff6a00" stroke-width="4" fill="none"/>
+  
+  <!-- Second Triangle -->
+  <path d="M100 35 L165 165 L35 165 Z" stroke="#ff6a00" stroke-width="4" fill="none"/>
+  
+  <!-- Third Triangle -->
+  <path d="M100 50 L150 150 L50 150 Z" stroke="#ff6a00" stroke-width="4" fill="none"/>
+  
+  <!-- Bottom Lines -->
+  <line x1="50" y1="170" x2="80" y2="170" stroke="#ff6a00" stroke-width="4"/>
+  <line x1="120" y1="170" x2="150" y2="170" stroke="#ff6a00" stroke-width="4"/>
+  
+  <!-- OG Text -->
+  <text x="100" y="125" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ff6a00" text-anchor="middle">OG</text>
+</svg>
+

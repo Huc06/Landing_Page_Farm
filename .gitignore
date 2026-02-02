@@ -22,7 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Synced from src/assets by sync-assets (prebuild)
-/public/hero-valley.png
-/public/logo.svg
