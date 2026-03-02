@@ -1,7 +1,7 @@
 import logo from "@/assets/logo.svg";
+import { Link } from "react-router-dom";
 
 const DOCS_URL = "https://docs.overguild.xyz";
-const BLOG_URL = "https://blog.overguild.xyz";
 
 const BLOCK_COUNT = 15;
 const LIT_START = 5;
@@ -16,16 +16,16 @@ const FooterSection = () => {
         <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-0">
           <div className="flex items-center gap-3 md:justify-self-start">
             <img src={logo} alt="OverGuild logo" className="w-8 h-8" />
-            <span className="text-lg font-bold text-brand-outline">OverGuild</span>
+            <span className="text-lg font-bold text-brand-outline">
+              OverGuild
+            </span>
           </div>
 
           <nav className="flex items-center justify-center gap-6 text-sm text-muted-foreground hover:[&>a]:text-foreground [&>a]:transition-colors">
             <a href={DOCS_URL} target="_blank" rel="noopener noreferrer">
               Docs
             </a>
-            <a href={BLOG_URL} target="_blank" rel="noopener noreferrer">
-              Blog
-            </a>
+            <Link to="/blog">Blog</Link>
           </nav>
 
           <p className="text-sm text-muted-foreground md:text-right md:justify-self-end">
